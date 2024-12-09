@@ -33,3 +33,14 @@ export function renderImages(images) {
 
     gallery.innerHTML = markup;
 }
+
+
+
+export function scrollPage() {
+    const { height: cardHeight } = galleryContainer.firstElementChild.getBoundingClientRect();
+    window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+    });
+}
+
