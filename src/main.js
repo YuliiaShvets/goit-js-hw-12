@@ -12,6 +12,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
                     });
+              
 
 const form = document.querySelector('#search-form');
 const loadMoreButton = document.querySelector('.load-more');
@@ -19,6 +20,7 @@ const loader = document.querySelector('#loader');
 const gallery = document.querySelector('.gallery');
 
 loadMoreButton.style.display = 'none';
+
 
 let INPUT_VALUE = '';
 let page = 1;
@@ -91,8 +93,6 @@ async function onLoadMore() {
     try {
         const data = await searchImages(INPUT_VALUE, page);
 
-        
-
         const loadedImages = page * PER_PAGE;
         if (loadedImages >= total_Hits) {
             renderImages(data.hits);
@@ -101,8 +101,10 @@ async function onLoadMore() {
         } else {
             renderImages(data.hits);
             loadMoreButton.style.display = "block";
+            scrollPage();
     } 
 }
+
     catch (error) {
         loadMoreButton.style.display = "none";
         iziToast.error({ message: 'Failed to load more images. Please try again later.' });
