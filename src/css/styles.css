@@ -136,9 +136,10 @@ button:hover {
   }
 }
 
-
-
-
+.gallery-image {
+  display: block;
+  max-width: 360px;
+}
 
 .load-more {
   border-radius: 8px;
@@ -153,14 +154,15 @@ button:hover {
   letter-spacing: 0.04em;
   color: #fff;
   margin-top: 32px;
-  margin-left: 700px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .load-more:hover {
   background-color: #6c8cff;
 }
 
-.load-more.load-more-hidden {
-  display: none;
-}
+

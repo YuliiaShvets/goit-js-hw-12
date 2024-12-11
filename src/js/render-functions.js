@@ -1,9 +1,4 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-
-
 export function renderImages(images) {
-  const gallery = document.querySelector('.gallery');
   const markup = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
     <li class="gallery-item">
     <a href="${largeImageURL}">
@@ -31,7 +26,7 @@ export function renderImages(images) {
     </li>
     `).join("");
 
-    gallery.innerHTML = markup;
+    gallery.insertAdjacentHTML('beforeend', markup);
 }
 
 

@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const API_KEY = '47416000-07f62798ea171a7bceefd88a8';
 const BASE_URL = 'https://pixabay.com/api/';
-const PER_PAGE = 15;
+export const PER_PAGE = 15;
 
-export async function searchImages(query, page = 1, perPage = 15) {
+export async function searchImages(query, page) {
     const params = {
         key: API_KEY,
         q: query,
