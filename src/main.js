@@ -64,7 +64,6 @@ async function handleSearch(event) {
         };
 
             renderImages(res.hits, gallery);
-            lightbox.refresh();
             loader.style.display = "none";
             total_Hits = res.totalHits;
 
@@ -96,17 +95,23 @@ async function onLoadMore() {
         const loadedImages = page * PER_PAGE;
         if (loadedImages >= total_Hits) {
             renderImages(data.hits);
+            lightbox.refresh();
+            scrollPage();
             iziToast.info({ message: "We're sorry, but you've reached the end of search results." });
             loadMoreButton.style.display = "none";
+            loader.style.display = "none";
         } else {
             renderImages(data.hits);
+            lightbox.refresh();
             loadMoreButton.style.display = "block";
             scrollPage();
+            loader.style.display = "none";
     } 
 }
 
     catch (error) {
         loadMoreButton.style.display = "none";
+        loader.style.display = "none";
         iziToast.error({ message: 'Failed to load more images. Please try again later.' });
     }
     finally {
