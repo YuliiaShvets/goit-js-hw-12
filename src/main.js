@@ -64,6 +64,7 @@ async function handleSearch(event) {
         };
 
             renderImages(res.hits, gallery);
+            lightbox.refresh();
             loader.style.display = "none";
             total_Hits = res.totalHits;
 
